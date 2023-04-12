@@ -45,14 +45,40 @@ extern touchPosition PANT_DAT;
 
 //Nombres asignados a los estados
 
-#define ESPERA      0
-#define INTRO       1
-#define MENU        2
-#define CORRER      3
-#define SALTO       4
-#define CHOQUE      5
-#define AGACHAR     6
+#define INICIO      0
+#define SELECCION   1
+#define TIROS       2
+#define FINAL       3
+#define PAUSA       4
 
+//Tiros o Paradas
+
+#define TARRIBA      0
+#define TABAJO       1
+#define TCENTRO      2
+#define TIZQUIERDA   3 
+#define TDERECHA     4
+
+//PJs
+
+#define Personaje 0
+#define Personaje 1
+#define Personaje 2
+#define Personaje 3
+#define Personaje 4
+
+//Porteros
+
+#define Portero 0
+#define Portero 1
+#define Portero 2
 
 extern int ESTADO;
+extern int PJ;
+extern int Port;
+extern int Direccion;
+extern int Parada;
+extern int ntiros;
+extern int Goles;
+extern int Paradas;
 

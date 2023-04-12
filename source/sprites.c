@@ -387,7 +387,28 @@ int i;
 
 //DINO CORRIENDO
 /* Esta función dibuja un DINO NORMAL en la posición x-y de pantalla. ( indice -> un valor entre 0 y 126.) */
-void MostrarDino(int indice, int x, int y)
+void visualizarPJ1(int indice, int x, int y)
+{ 
+ 
+oamSet(&oamMain, //main graphics engine context
+		indice,           //oam index (0 to 127)  
+		x, y,   //x and y pixle location of the sprite
+		0,                    //priority, lower renders last (on top)
+		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
+		SpriteSize_16x16,     
+		SpriteColorFormat_256Color, 
+		gfxdino,//+16*16/2,                  //pointer to the loaded graphics
+		-1,                  //sprite rotation data  
+		false,               //double the size when rotating?
+		false,			//hide the sprite?
+		false, false, //vflip, hflip
+		false	//apply mosaic
+		); 
+	  
+oamUpdate(&oamMain);  
+}
+
+void visualizarPJ1E(int indice, int x, int y)
 { 
  
 oamSet(&oamMain, //main graphics engine context
@@ -410,7 +431,28 @@ oamUpdate(&oamMain);
 
 
 /*Esta función borra de la pantalla el DINOSAURIO(pies abajo) con el índice indicado*/
-void BorrarDino(int indice, int x, int y)
+void ocultarPJ1(int indice, int x, int y)
+{
+
+oamSet(&oamMain, //main graphics engine context
+		indice,           //oam index (0 to 127)  
+		x, y,   //x and y pixle location of the sprite
+		0,                    //priority, lower renders last (on top)
+		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
+		SpriteSize_16x16,     
+		SpriteColorFormat_256Color, 
+		gfxdino,//+16*16/2,                  //pointer to the loaded graphics
+		-1,                  //sprite rotation data  
+		false,               //double the size when rotating?
+		true,			//hide the sprite?
+		false, false, //vflip, hflip
+		false	//apply mosaic
+		); 
+oamUpdate(&oamMain); 
+
+}
+
+void ocultarPJ1E(int indice, int x, int y)
 {
 
 oamSet(&oamMain, //main graphics engine context
@@ -435,7 +477,28 @@ oamUpdate(&oamMain);
 
 
 /* Esta función dibuja el dino con PIERNA DERECHA LEVANTADA*/
-void MostrarDino_dcha(int indice, int x, int y)
+void visualizarPJ2(int indice, int x, int y)
+{ 
+ 
+oamSet(&oamMain, //main graphics engine context
+		indice,           //oam index (0 to 127)  
+		x, y,   //x and y pixle location of the sprite
+		0,                    //priority, lower renders last (on top)
+		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
+		SpriteSize_16x16,     
+		SpriteColorFormat_256Color, 
+		gfxdino_dcha,//+16*16/2,                  //pointer to the loaded graphics
+		-1,                  //sprite rotation data  
+		false,               //double the size when rotating?
+		false,			//hide the sprite?
+		false, false, //vflip, hflip
+		false	//apply mosaic
+		); 
+	  
+oamUpdate(&oamMain);  
+}
+
+void visualizarPJ2E(int indice, int x, int y)
 { 
  
 oamSet(&oamMain, //main graphics engine context
@@ -457,7 +520,28 @@ oamUpdate(&oamMain);
 }
 
 /* Esta función BORRA el dino que ha sido dibujado con la PIERNA DERECHA LEVANTADA*/
-void BorrarDino_dcha(int indice, int x, int y)
+void ocultarPJ2(int indice, int x, int y)
+{
+
+oamSet(&oamMain, //main graphics engine context
+		indice,           //oam index (0 to 127)  
+		x, y,   //x and y pixle location of the sprite
+		0,                    //priority, lower renders last (on top)
+		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
+		SpriteSize_16x16,     
+		SpriteColorFormat_256Color, 
+		gfxdino_dcha,//+16*16/2,                  //pointer to the loaded graphics
+		-1,                  //sprite rotation data  
+		false,               //double the size when rotating?
+		true,			//hide the sprite?
+		false, false, //vflip, hflip
+		false	//apply mosaic
+		); 
+oamUpdate(&oamMain); 
+
+}
+
+void ocultarPJ2E(int indice, int x, int y)
 {
 
 oamSet(&oamMain, //main graphics engine context
@@ -479,10 +563,29 @@ oamUpdate(&oamMain);
 }
 
 
-
-
 /* Esta función dibuja el dino con la PIERNA IZQUIERDA LEVANTADA*/
-void MostrarDino_izda(int indice, int x, int y)
+void visualizarPJ3(int indice, int x, int y)
+{ 
+ 
+oamSet(&oamMain, //main graphics engine context
+		indice,           //oam index (0 to 127)  
+		x, y,   //x and y pixle location of the sprite
+		0,                    //priority, lower renders last (on top)
+		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
+		SpriteSize_16x16,     
+		SpriteColorFormat_256Color, 
+		gfxdino_izda,//+16*16/2,                  //pointer to the loaded graphics
+		-1,                  //sprite rotation data  
+		false,               //double the size when rotating?
+		false,			//hide the sprite?
+		false, false, //vflip, hflip
+		false	//apply mosaic
+		); 
+	  
+oamUpdate(&oamMain);  
+}
+
+void visualizarPJ3E(int indice, int x, int y)
 { 
  
 oamSet(&oamMain, //main graphics engine context
@@ -504,7 +607,27 @@ oamUpdate(&oamMain);
 }
 
 /* Esta función BORRA el dino con PIERNA IZQUIERDA LEVANTADA*/
-void BorrarDino_izda(int indice, int x, int y)
+void ocultarPJ3(int indice, int x, int y)
+{
+
+oamSet(&oamMain, //main graphics engine context
+		indice,           //oam index (0 to 127)  
+		x, y,   //x and y pixle location of the sprite
+		0,                    //priority, lower renders last (on top)
+		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
+		SpriteSize_16x16,     
+		SpriteColorFormat_256Color, 
+		gfxdino_izda,//+16*16/2,                  //pointer to the loaded graphics
+		-1,                  //sprite rotation data  
+		false,               //double the size when rotating?
+		true,			//hide the sprite?
+		false, false, //vflip, hflip
+		false	//apply mosaic
+		); 
+oamUpdate(&oamMain); 
+}
+
+void ocultarPJ3E(int indice, int x, int y)
 {
 
 oamSet(&oamMain, //main graphics engine context
@@ -529,7 +652,28 @@ oamUpdate(&oamMain);
 
 // DINO AGACHADO
 /* Esta función dibuja el dino AGACHADO*/
-void MostrarDino_agachar(int indice, int x, int y)
+void visualiazarPJ3(int indice, int x, int y)
+{ 
+ 
+oamSet(&oamMain, //main graphics engine context
+		indice,           //oam index (0 to 127)  
+		x, y,   //x and y pixle location of the sprite
+		0,                    //priority, lower renders last (on top)
+		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
+		SpriteSize_16x16,     
+		SpriteColorFormat_256Color, 
+		gfxdino_agachar,//+16*16/2,                  //pointer to the loaded graphics
+		-1,                  //sprite rotation data  
+		false,               //double the size when rotating?
+		false,			//hide the sprite?
+		false, false, //vflip, hflip
+		false	//apply mosaic
+		); 
+	  
+oamUpdate(&oamMain);  
+}
+
+void visualiazarPJ3E(int indice, int x, int y)
 { 
  
 oamSet(&oamMain, //main graphics engine context
@@ -552,7 +696,27 @@ oamUpdate(&oamMain);
 
 
 /* Esta función BORRA el dino el cuál ha sido dibujado AGACHADO*/
-void BorrarDino_agachar(int indice, int x, int y)
+void ocultarPJ3(int indice, int x, int y)
+{
+
+oamSet(&oamMain, //main graphics engine context
+		indice,           //oam index (0 to 127)  
+		x, y,   //x and y pixle location of the sprite
+		0,                    //priority, lower renders last (on top)
+		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
+		SpriteSize_16x16,     
+		SpriteColorFormat_256Color, 
+		gfxdino_agachar,//+16*16/2,                  //pointer to the loaded graphics
+		-1,                  //sprite rotation data  
+		false,               //double the size when rotating?
+		true,			//hide the sprite?
+		false, false, //vflip, hflip
+		false	//apply mosaic
+		); 
+oamUpdate(&oamMain); 
+}
+
+void ocultarPJ3E(int indice, int x, int y)
 {
 
 oamSet(&oamMain, //main graphics engine context
@@ -577,7 +741,28 @@ oamUpdate(&oamMain);
 
 
 /* Esta función dibuja el dino AGACHAD (pierna izda levantada) O*/
-void MostrarDino_agachar_izda(int indice, int x, int y)
+void visualizarPJ4(int indice, int x, int y)
+{ 
+ 
+oamSet(&oamMain, //main graphics engine context
+		indice,           //oam index (0 to 127)  
+		x, y,   //x and y pixle location of the sprite
+		0,                    //priority, lower renders last (on top)
+		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
+		SpriteSize_16x16,     
+		SpriteColorFormat_256Color, 
+		gfxdino_agachar_izda,//+16*16/2,                  //pointer to the loaded graphics
+		-1,                  //sprite rotation data  
+		false,               //double the size when rotating?
+		false,			//hide the sprite?
+		false, false, //vflip, hflip
+		false	//apply mosaic
+		); 
+	  
+oamUpdate(&oamMain);  
+}
+
+void visualizarPJ4E(int indice, int x, int y)
 { 
  
 oamSet(&oamMain, //main graphics engine context
@@ -599,7 +784,27 @@ oamUpdate(&oamMain);
 }
 
 /* Esta función BORRA el dino el cuál ha sido dibujado AGACHADO*/
-void BorrarDino_agachar_izda(int indice, int x, int y)
+void OcultarPJ4(int indice, int x, int y)
+{
+
+oamSet(&oamMain, //main graphics engine context
+		indice,           //oam index (0 to 127)  
+		x, y,   //x and y pixle location of the sprite
+		0,                    //priority, lower renders last (on top)
+		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
+		SpriteSize_16x16,     
+		SpriteColorFormat_256Color, 
+		gfxdino_agachar_izda,//+16*16/2,                  //pointer to the loaded graphics
+		-1,                  //sprite rotation data  
+		false,               //double the size when rotating?
+		true,			//hide the sprite?
+		false, false, //vflip, hflip
+		false	//apply mosaic
+		); 
+oamUpdate(&oamMain); 
+}
+
+void OcultarPJ4E(int indice, int x, int y)
 {
 
 oamSet(&oamMain, //main graphics engine context
@@ -626,7 +831,28 @@ oamUpdate(&oamMain);
 
 
 /* Esta función dibuja el dino AGACHADO (pierna derecha levantada)*/
-void MostrarDino_agachar_dcha(int indice, int x, int y)
+void visualizarPJ5(int indice, int x, int y)
+{ 
+ 
+oamSet(&oamMain, //main graphics engine context
+		indice,           //oam index (0 to 127)  
+		x, y,   //x and y pixle location of the sprite
+		0,                    //priority, lower renders last (on top)
+		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
+		SpriteSize_16x16,     
+		SpriteColorFormat_256Color, 
+		gfxdino_agachar_dcha,//+16*16/2,                  //pointer to the loaded graphics
+		-1,                  //sprite rotation data  
+		false,               //double the size when rotating?
+		false,			//hide the sprite?
+		false, false, //vflip, hflip
+		false	//apply mosaic
+		); 
+	  
+oamUpdate(&oamMain);  
+}
+
+void visualizarPJ5E(int indice, int x, int y)
 { 
  
 oamSet(&oamMain, //main graphics engine context
@@ -648,7 +874,7 @@ oamUpdate(&oamMain);
 }
 
 /* Esta función BORRA el dino el cuál ha sido dibujado AGACHADO*/
-void BorrarDino_agachar_dcha(int indice, int x, int y)
+void ocultarPJ5(int indice, int x, int y)
 {
 
 oamSet(&oamMain, //main graphics engine context
@@ -668,36 +894,7 @@ oamSet(&oamMain, //main graphics engine context
 oamUpdate(&oamMain); 
 }
 
-
-
-
-
-
-//DINO CHOCADO (muerto)
-/* Esta función dibuja el dino cuando se HA CHOCADO (cuando "muere" el dinosaurio) */
-void MostrarDino_choque(int indice, int x, int y)
-{ 
- 
-oamSet(&oamMain, //main graphics engine context
-		indice,           //oam index (0 to 127)  
-		x, y,   //x and y pixle location of the sprite
-		0,                    //priority, lower renders last (on top)
-		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
-		SpriteSize_16x16,     
-		SpriteColorFormat_256Color, 
-		gfxdino_choque,//+16*16/2,                  //pointer to the loaded graphics
-		-1,                  //sprite rotation data  
-		false,               //double the size when rotating?
-		false,			//hide the sprite?
-		false, false, //vflip, hflip
-		false	//apply mosaic
-		); 
-	  
-oamUpdate(&oamMain);  
-}
-
-/* Esta función BORRA el dino CHOCADO*/
-void BorrarDino_choque(int indice, int x, int y)
+void ocultarPJ5E(int indice, int x, int y)
 {
 
 oamSet(&oamMain, //main graphics engine context
@@ -707,7 +904,7 @@ oamSet(&oamMain, //main graphics engine context
 		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
 		SpriteSize_16x16,     
 		SpriteColorFormat_256Color, 
-		gfxdino_choque,//+16*16/2,                  //pointer to the loaded graphics
+		gfxdino_agachar_dcha,//+16*16/2,                  //pointer to the loaded graphics
 		-1,                  //sprite rotation data  
 		false,               //double the size when rotating?
 		true,			//hide the sprite?
@@ -716,237 +913,3 @@ oamSet(&oamMain, //main graphics engine context
 		); 
 oamUpdate(&oamMain); 
 }
-
-
-
-
-
-
-
-//FUNCIONES PARA MOSTRAR-BORRAR LOS 3 tipos de arboles
-
-/*mostrar-borrar arbol 42*/
-void MostrarArbol_2(int indice, int x, int y)
-{ 
-oamSet(&oamMain, //main graphics engine context
-		indice,           //oam index (0 to 127)  
-		x, y,   //x and y pixle location of the sprite
-		0,                    //priority, lower renders last (on top)
-		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
-		SpriteSize_16x16,     
-		SpriteColorFormat_256Color, 
-		gfxarbol_2,//+16*16/2,                  //pointer to the loaded graphics
-		-1,                  //sprite rotation data  
-		false,               //double the size when rotating?
-		false,			//hide the sprite?
-		false, false, //vflip, hflip
-		false	//apply mosaic
-		); 
-	  
-oamUpdate(&oamMain);  
-}
-void BorrarArbol_2(int indice, int x, int y)
-{
-oamSet(&oamMain, //main graphics engine context
-		indice,           //oam index (0 to 127)  
-		x, y,   //x and y pixle location of the sprite
-		0,                    //priority, lower renders last (on top)
-		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
-		SpriteSize_16x16,     
-		SpriteColorFormat_256Color, 
-		gfxarbol_2,//+16*16/2,                  //pointer to the loaded graphics
-		-1,                  //sprite rotation data  
-		false,               //double the size when rotating?
-		true,			//hide the sprite?
-		false, false, //vflip, hflip
-		false	//apply mosaic
-		); 
-oamUpdate(&oamMain); 
-}
-
-
-/*mostrar-borrar arbol 3*/
-void MostrarArbol_3(int indice, int x, int y)
-{ 
-oamSet(&oamMain, //main graphics engine context
-		indice,           //oam index (0 to 127)  
-		x, y,   //x and y pixle location of the sprite
-		0,                    //priority, lower renders last (on top)
-		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
-		SpriteSize_16x16,     
-		SpriteColorFormat_256Color, 
-		gfxarbol_3,//+16*16/2,                  //pointer to the loaded graphics
-		-1,                  //sprite rotation data  
-		false,               //double the size when rotating?
-		false,			//hide the sprite?
-		false, false, //vflip, hflip
-		false	//apply mosaic
-		); 
-	  
-oamUpdate(&oamMain);  
-}
-void BorrarArbol_3(int indice, int x, int y)
-{
-oamSet(&oamMain, //main graphics engine context
-		indice,           //oam index (0 to 127)  
-		x, y,   //x and y pixle location of the sprite
-		0,                    //priority, lower renders last (on top)
-		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
-		SpriteSize_16x16,     
-		SpriteColorFormat_256Color, 
-		gfxarbol_3,//+16*16/2,                  //pointer to the loaded graphics
-		-1,                  //sprite rotation data  
-		false,               //double the size when rotating?
-		true,			//hide the sprite?
-		false, false, //vflip, hflip
-		false	//apply mosaic
-		); 
-oamUpdate(&oamMain); 
-}
-
-
-/*mostrar-borrar arbol 4*/
-void MostrarArbol_4(int indice, int x, int y)
-{ 
-oamSet(&oamMain, //main graphics engine context
-		indice,           //oam index (0 to 127)  
-		x, y,   //x and y pixle location of the sprite
-		0,                    //priority, lower renders last (on top)
-		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
-		SpriteSize_16x16,     
-		SpriteColorFormat_256Color, 
-		gfxarbol_4,//+16*16/2,                  //pointer to the loaded graphics
-		-1,                  //sprite rotation data  
-		false,               //double the size when rotating?
-		false,			//hide the sprite?
-		false, false, //vflip, hflip
-		false	//apply mosaic
-		); 
-	  
-oamUpdate(&oamMain);  
-}
-void BorrarArbol_4(int indice, int x, int y)
-{
-
-oamSet(&oamMain, //main graphics engine context
-		indice,           //oam index (0 to 127)  
-		x, y,   //x and y pixle location of the sprite
-		0,                    //priority, lower renders last (on top)
-		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
-		SpriteSize_16x16,     
-		SpriteColorFormat_256Color, 
-		gfxarbol_4,//+16*16/2,                  //pointer to the loaded graphics
-		-1,                  //sprite rotation data  
-		false,               //double the size when rotating?
-		true,			//hide the sprite?
-		false, false, //vflip, hflip
-		false	//apply mosaic
-		); 
-oamUpdate(&oamMain); 
-}
-
-
-
-
-
-
-
-
-
-//FUNCIONES PARA MOSTRAR-BORRAR sprite del pajaro
-
-/*mostrar-borrar pajaro alas arriba*/
-void MostrarPajaro_alas_arriba(int indice, int x, int y)
-{ 
-oamSet(&oamMain, //main graphics engine context
-		indice,           //oam index (0 to 127)  
-		x, y,   //x and y pixle location of the sprite
-		0,                    //priority, lower renders last (on top)
-		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
-		SpriteSize_16x16,     
-		SpriteColorFormat_256Color, 
-		gfxpajaro_arriba,//+16*16/2,                  //pointer to the loaded graphics
-		-1,                  //sprite rotation data  
-		false,               //double the size when rotating?
-		false,			//hide the sprite?
-		false, false, //vflip, hflip
-		false	//apply mosaic
-		); 
-	  
-oamUpdate(&oamMain);  
-}
-void BorrarPajaro_alas_arriba(int indice, int x, int y)
-{
-
-oamSet(&oamMain, //main graphics engine context
-		indice,           //oam index (0 to 127)  
-		x, y,   //x and y pixle location of the sprite
-		0,                    //priority, lower renders last (on top)
-		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
-		SpriteSize_16x16,     
-		SpriteColorFormat_256Color, 
-		gfxpajaro_arriba,//+16*16/2,                  //pointer to the loaded graphics
-		-1,                  //sprite rotation data  
-		false,               //double the size when rotating?
-		true,			//hide the sprite?
-		false, false, //vflip, hflip
-		false	//apply mosaic
-		); 
-oamUpdate(&oamMain); 
-}
-
-
-/*mostrar-borrar pajaro alas abajo*/
-void MostrarPajaro_alas_abajo(int indice, int x, int y)
-{ 
-oamSet(&oamMain, //main graphics engine context
-		indice,           //oam index (0 to 127)  
-		x, y,   //x and y pixle location of the sprite
-		0,                    //priority, lower renders last (on top)
-		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
-		SpriteSize_16x16,     
-		SpriteColorFormat_256Color, 
-		gfxpajaro_abajo,//+16*16/2,                  //pointer to the loaded graphics
-		-1,                  //sprite rotation data  
-		false,               //double the size when rotating?
-		false,			//hide the sprite?
-		false, false, //vflip, hflip
-		false	//apply mosaic
-		); 
-	  
-oamUpdate(&oamMain);  
-}
-void BorrarPajaro_alas_abajo(int indice, int x, int y)
-{
-
-oamSet(&oamMain, //main graphics engine context
-		indice,           //oam index (0 to 127)  
-		x, y,   //x and y pixle location of the sprite
-		0,                    //priority, lower renders last (on top)
-		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
-		SpriteSize_16x16,     
-		SpriteColorFormat_256Color, 
-		gfxpajaro_abajo,//+16*16/2,                  //pointer to the loaded graphics
-		-1,                  //sprite rotation data  
-		false,               //double the size when rotating?
-		true,			//hide the sprite?
-		false, false, //vflip, hflip
-		false	//apply mosaic
-		); 
-oamUpdate(&oamMain); 
-}
-
-
-/*
-void dinoCorriendo(){
-	int x=10;
-	while (x<240){
-	   MostrarDino(1,x,131);
-	   BorrarDino(1,x,131);
-	   x++;
-
-	}
-	
-
-}
-*/

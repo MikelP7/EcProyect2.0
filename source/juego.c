@@ -21,7 +21,7 @@ int tiempo;
 void juego()
 {	
 	
-	ESTADO=INTRO;
+	ESTADO=INICIO;
 	
 
     // LLAMADAS A REALIZAR:
@@ -55,72 +55,68 @@ void juego()
 	HabilitarIntTeclado();
 
 
-		//************INTRO************//
-		if (ESTADO == INTRO) {
+		//************INICIO************//
+		if (ESTADO == INICIO) {
 
 			// Escribe el Titulo y los creadores del juego en la pantalla de arriba	
-			iprintf("\x1b[10;5HDino Run ");						
-			iprintf("\x1b[13;5HBy: Telmo, Mikel & Sendoa ");
+			iprintf("\x1b[10;5HInazuma Strickers");						
+			iprintf("\x1b[13;5HBy: Iker, Julen y Mikel  ");
 		
 			visualizarIntro();
-
 		}
 
 
-		//************MENU************//
-		if (ESTADO == MENU) {
+		//************SELECCION************//
+		if (ESTADO == SELECCION) {
 
-			visualizarMenu2();  // Visualiza el menú de "Ayuda" (Tutorial) para jugar
+			PJ=0;
+			visualizarSeleccion();  // Visualiza el menú de SELECCION
+			visualizarPJ(); //Muestra el sprite del personaje en pantalla 
 		
+			//Explica por pantalla como seleccionar un personaje
+			iprintf("\x1b[5;3HElije tu personaje utilizando R y L para ir cambiando o tocando tactilmente las flechas de la pantalla  ");
+			iprintf("\x1b[7;3HPulsa START Para seleccionar al personaje ");
+		
+		}
 
-			//Explica por pantalla los controles del juego.
-			iprintf("\x1b[2;2HCONTROLES:   ");
+		//************TIROS************//
+		if(ESTADO == TIROS){
+
+			visualizarPersonajeE();
+			visualizarPort();
+			visualizarCampo();
+			visualizarBalon();
+			ntiros=0;
+			Goles=0;
+			Parada=0;
 			
-			iprintf("\x1b[5;3HSaltar= Cruceta ARRIBA   ");
-			iprintf("\x1b[7;3HAgacharse= Cruceta ABAJO   ");
-			iprintf("\x1b[9;3HIzquierda= Cruceta IZQUIERDA   ");
-			iprintf("\x1b[11;3HDerecha= Cruceta DERECHA   ");
-			iprintf("\x1b[13;3HPLAY= Tocar PANTALLA   ");
-			iprintf("\x1b[15;3HTERMINAR PARTIDA= 'A'   ");
+			iprintf("\x1b[5;3HElije la direccion del tiro (ARRIBA, ABAJO, IZQUIERDA, DERECHA, CENTRO)");
+			iprintf("\x1b[7;3HPulsa A para tirar");
 
-
-			// Si se pulsa cualquier parte del Táctil comienza la partida (tactil por encuesta)
-			if(TactilTocada()==1){
-				consoleClear();
-				ESTADO=CORRER;
-			}
-		
-		}
-
-
-
-
-		//************CORRER************//   (Estado en el que corre normal el dinosaurio)
-		if (ESTADO == CORRER) {
-
-			PonerEnMarchaTempo();
-			
-			// Tecla cruceta abajo (arrow down) por encuesta --> Agacha el dino
-			if (TeclaPulsada()==ABAJO) {
-				ESTADO=AGACHAR;			
+			//Direccion en pantalla
+			if(Direccion==TARRIBA){
+				iprintf("\x1b[5;15HDireccion seleccionada: ARRIBA");
+			} 
+			else if(Direccion==TABAJO){
+				iprintf("\x1b[5;15HDireccion seleccionada: ABAJO");
+			} 
+			else if(Direccion==TIZQUIERDA){
+				iprintf("\x1b[5;15HDireccion seleccionada: IZQUIERDA");
+			} 
+			else if(Direccion==TDERECHA){
+				iprintf("\x1b[5;15HDireccion seleccionada: DERECHA");
+			} 
+			else if(Direccion==TCENTRO){
+				iprintf("\x1b[5;15HDireccion seleccionada: CENTRO")
 			}
 
-			// Tecla cruceta arriba (arrow up) por encuesta --> El dino salta
-			if (TeclaPulsada()==ARRIBA) {
-				ESTADO=SALTO;			
-			}	
-
+			// Va anotando los goles marcados o las paradas ejecutadas
+			tiros();
+			// Para finalizar la partida si se acaba el tiempo designado o se han hecho todos los tiros
+			if(ntiros = 5 || tiempo = 300){
+				ESTADO=FINAL;
+			}
 		}
-
-
-		//************CHOQUE************//
-		if (ESTADO == CHOQUE) {
-			iprintf("\x1b[5;10H*GAME OVER*");
-	
-		}
-
-		
-
 
 		// Vblank sincroniza los frames
 		swiWaitForVBlank();
