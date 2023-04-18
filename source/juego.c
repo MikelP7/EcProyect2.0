@@ -70,7 +70,7 @@ void juego()
 		if (ESTADO == SELECCION) {
 
 			PJ=0;
-			visualizarSeleccion();  // Visualiza el menú de SELECCION
+			visualizarFondoSeleccion();  // Visualiza el menú de SELECCION
 			visualizarPJ(); //Muestra el sprite del personaje en pantalla 
 		
 			//Explica por pantalla como seleccionar un personaje
@@ -115,6 +115,15 @@ void juego()
 			// Para finalizar la partida si se acaba el tiempo designado o se han hecho todos los tiros
 			if(ntiros = 5 || tiempo = 300){
 				ESTADO=FINAL;
+			}
+		}
+
+		//************TIROS************//
+		if(ESTADO==FINAL){
+			if(Goles>=3){
+				VisualizarVictoria();
+			}else{
+				VisualizarDerrota();
 			}
 		}
 

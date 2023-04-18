@@ -109,3 +109,11 @@ void visualizarFondo00() {
                      (uint16 *)BG_BMP_RAM(0),
                      Fondo00BitmapLen);
 }
+
+void visualizarFondoSeleccion() {
+		
+    dmaCopyHalfWords(DMA_CHANNEL,
+                     FondoSeleccionBitmap,
+                     (uint16 *)BG_BMP_RAM(0),
+                     FondoSeleccionBitmapLen);
+}
