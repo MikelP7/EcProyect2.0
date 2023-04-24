@@ -118,7 +118,7 @@ void juego()
 			}
 		}
 
-		//************TIROS************//
+		//************FINAL************//
 		if(ESTADO==FINAL){
 			if(Goles>=3){
 				VisualizarVictoria();
