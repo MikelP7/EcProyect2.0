@@ -1,1 +1,0 @@
-Info.o: Info.s

@@ -1,1 +1,0 @@
-Juego.o: Juego.s
